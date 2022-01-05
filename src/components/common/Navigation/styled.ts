@@ -87,11 +87,6 @@ export const StyledLink = styled(motion.div)`
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0s;
-  &:hover {
-    color: #4e5968;
-    background: #f2f4f6;
-    text-decoration: none;
-  }
 `;
 
 export const NavTask = styled.li`
@@ -100,12 +95,17 @@ export const NavTask = styled.li`
   margin: 0px 5px;
   cursor: pointer;
   color: #4e5968;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   word-break: keep-all;
   list-style: none;
   text-decoration: none;
   border-radius: 8px;
+  &:hover {
+    color: #4e5968;
+    background: #f2f4f6;
+    text-decoration: none;
+  }
 `;
 
 export const NavTaskWrapper = styled.ul`

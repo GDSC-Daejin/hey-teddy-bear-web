@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useGetScoreBoard } from '../../api/hooks/useGetScoreBoard';
 import { ContainerInner, LayoutContainer } from '../../styles/layouts';
+import { CardElementWrapper, CardListWrapper } from '../Home/styled';
 import MemberCard from '../../components/common/MemberCard';
-import { CardElementWrapper, CardListWrapper } from './styled';
-import api from '../../api';
+import { useGetScoreBoard } from '../../api/hooks/useGetScoreBoard';
 import { rowScoreBoardType } from '../../types';
 import { AxiosResponse } from 'axios';
+import api from '../../api';
 
-const Home = () => {
+const Weekly = () => {
   const [data, setData] = useState<rowScoreBoardType>();
   const getScore = async () => {
     const scoreBoard: AxiosResponse<rowScoreBoardType> =
       await api.getScoreBoard({
-        term: 'monthly',
+        term: 'weekly',
         filter: 'to',
       });
     setData(scoreBoard.data);
@@ -20,7 +20,6 @@ const Home = () => {
   useEffect(() => {
     getScore();
   }, []);
-
   return (
     <>
       <LayoutContainer>
@@ -38,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Weekly;

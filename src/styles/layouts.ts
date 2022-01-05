@@ -45,7 +45,6 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1140px;
-  margin: auto;
   min-width: 320px;
 `;
 export const ContainerInner = styled.div`
