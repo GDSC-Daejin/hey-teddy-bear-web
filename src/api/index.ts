@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { rowScoreBoardType, scoreBoardType } from '../types';
 
 export class TeddyBearApi {
   private API: string;
@@ -6,7 +7,9 @@ export class TeddyBearApi {
     this.API = 'https://iconic-flare-334012.du.r.appspot.com';
   }
   getScoreBoard = () => {
-    return axios.get<any>(`${this.API}/api/scoreboard/weekly/to/inc`);
+    return axios.get<rowScoreBoardType>(
+      `${this.API}/api/scoreboard/monthly/to/inc`,
+    );
   };
   getDetailBoard = (id: string) => {
     return axios.get(`${this.API}/api/userstats/${id}`);
