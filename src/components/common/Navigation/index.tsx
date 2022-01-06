@@ -6,21 +6,24 @@ import {
   NavTask,
   NavTaskWrapper,
   SchoolName,
-  SchoolNameUni,
   StyledImg,
   StyledLogo,
   StyledLogoWrapper,
 } from './styled';
 import GDSCLogo from '../../../img/GDSC-LOGO.svg';
-import WideNavCategory from './WideNavCategory';
 import { useLocation } from 'react-router';
 import './Navigation.css';
+import NavigationCategory from './NavigationCategory';
 
 const Navigation: React.FC = () => {
   const locaton = useLocation();
-  const [routeStyle, setRoutStyle] = useState<string>('/');
+  const routeData = [
+    { label: 'Monthly', route: '/' },
+    { label: 'Weekly', route: '/weekly' },
+  ];
+  const [route, setRoute] = useState<string>('/');
   useEffect(() => {
-    setRoutStyle(locaton.pathname);
+    setRoute(locaton.pathname);
   });
   return (
     <NavDesign className={'white'}>
@@ -37,7 +40,11 @@ const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-        <WideNavCategory routeStyle={routeStyle} />
+        <NavigationCategory
+          routeData={routeData}
+          setSelect={setRoute}
+          select={route}
+        />
       </NavInner>
     </NavDesign>
   );

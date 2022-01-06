@@ -10,4 +10,7 @@ export const CardElementWrapper = styled.div`
   justify-content: center;
   cursor: pointer;
   margin-top: 35px;
+  @media (max-width: 500px) {
+    width: 50%;
+  }
 `;

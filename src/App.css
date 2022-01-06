@@ -10,7 +10,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 html {
-  background: white !important;
+  background: #fafafa !important;
 }
 a {
   text-decoration: none;
@@ -27,14 +27,6 @@ a:focus {
 }
 a:active {
   text-decoration: none;
-}
-.active{
-  color: #A35D29 !important;
-  font-weight: bold;
-}
-.unActive{
-  color: black;
-  opacity: 20%;
 }
 
 
