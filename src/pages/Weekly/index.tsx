@@ -8,29 +8,23 @@ import { AxiosResponse } from 'axios';
 import api from '../../api';
 
 const Weekly = () => {
-  const [data, setData] = useState<rowScoreBoardType>();
-  const getScore = async () => {
-    const scoreBoard: AxiosResponse<rowScoreBoardType> =
-      await api.getScoreBoard({
-        term: 'weekly',
-        filter: 'to',
-      });
-    setData(scoreBoard.data);
-  };
-  useEffect(() => {
-    getScore();
-  }, []);
+  const weeklyData = useGetScoreBoard({
+    term: 'weekly',
+    filter: 'to',
+  });
   return (
     <>
       <LayoutContainer>
         <ContainerInner>
-          <CardListWrapper>
-            {data?.data.map((data, id) => (
-              <CardElementWrapper key={id}>
-                <MemberCard data={data} />
-              </CardElementWrapper>
-            ))}
-          </CardListWrapper>
+          {weeklyData.data && (
+            <CardListWrapper>
+              {weeklyData.data.data.map((data, id) => (
+                <CardElementWrapper key={id}>
+                  <MemberCard data={data} />
+                </CardElementWrapper>
+              ))}
+            </CardListWrapper>
+          )}
         </ContainerInner>
       </LayoutContainer>
     </>

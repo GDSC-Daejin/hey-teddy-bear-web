@@ -5,15 +5,7 @@ import Layout from './Layout';
 
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '1 0 auto',
-        height: '100vh',
-        background: '#FAFAFA',
-      }}
-    >
+    <div>
       <Layout />
     </div>
   );

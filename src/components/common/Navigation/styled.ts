@@ -101,11 +101,6 @@ export const NavTask = styled.li`
   list-style: none;
   text-decoration: none;
   border-radius: 8px;
-  &:hover {
-    color: #4e5968;
-    background: #f2f4f6;
-    text-decoration: none;
-  }
 `;
 
 export const NavTaskWrapper = styled.ul`

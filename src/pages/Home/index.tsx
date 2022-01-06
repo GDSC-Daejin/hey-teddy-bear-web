@@ -8,30 +8,24 @@ import { rowScoreBoardType } from '../../types';
 import { AxiosResponse } from 'axios';
 
 const Home = () => {
-  const [data, setData] = useState<rowScoreBoardType>();
-  const getScore = async () => {
-    const scoreBoard: AxiosResponse<rowScoreBoardType> =
-      await api.getScoreBoard({
-        term: 'monthly',
-        filter: 'to',
-      });
-    setData(scoreBoard.data);
-  };
-  useEffect(() => {
-    getScore();
-  }, []);
+  const monthlyData = useGetScoreBoard({
+    term: 'monthly',
+    filter: 'to',
+  });
 
   return (
     <>
       <LayoutContainer>
         <ContainerInner>
-          <CardListWrapper>
-            {data?.data.map((data, id) => (
-              <CardElementWrapper key={id}>
-                <MemberCard data={data} />
-              </CardElementWrapper>
-            ))}
-          </CardListWrapper>
+          {monthlyData.data && (
+            <CardListWrapper>
+              {monthlyData.data.data.map((data, id) => (
+                <CardElementWrapper key={id}>
+                  <MemberCard data={data} />
+                </CardElementWrapper>
+              ))}
+            </CardListWrapper>
+          )}
         </ContainerInner>
       </LayoutContainer>
     </>

@@ -1,14 +1,8 @@
 import useSWR from 'swr';
 import Api from '../index';
 
-async function getScoreBoard({
-  term,
-  filter,
-}: {
-  term: string;
-  filter: string;
-}) {
-  const res = await Api.getScoreBoard({ term, filter });
+async function getScoreBoard(filter: string) {
+  const res = await Api.getScoreBoard(filter);
   return res.data;
 }
 
@@ -16,14 +10,13 @@ export function useGetScoreBoard({
   term,
   filter,
 }: {
-  term?: string;
-  filter?: string;
+  term: string;
+  filter: string;
 }) {
-  const params = {
-    term,
-    filter,
-  };
-  const { data, error } = useSWR([params], getScoreBoard);
+  const query = `${term}/${filter}`;
+  const { data, error } = useSWR([query], getScoreBoard, {
+    refreshInterval: 5000,
+  });
   return {
     data: data && data,
     error,
