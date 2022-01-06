@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ContainerInner, LayoutContainer } from '../../styles/layouts';
-import { CardElementWrapper, CardListWrapper } from '../Home/styled';
+import { CardElementWrapper, CardList } from '../Home/styled';
 import MemberCard from '../../components/common/MemberCard';
 import { useGetScoreBoard } from '../../api/hooks/useGetScoreBoard';
-import { rowScoreBoardType } from '../../types';
-import { AxiosResponse } from 'axios';
-import api from '../../api';
+import {
+  listAnimate,
+  listItemAnimate,
+} from '../../components/common/motions/variants';
 
 const Weekly = () => {
   const weeklyData = useGetScoreBoard({
@@ -14,19 +15,19 @@ const Weekly = () => {
   });
   return (
     <>
-      <LayoutContainer>
-        <ContainerInner>
-          {weeklyData.data && (
-            <CardListWrapper>
+      {weeklyData.data && (
+        <LayoutContainer>
+          <ContainerInner>
+            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
               {weeklyData.data.data.map((data, id) => (
-                <CardElementWrapper key={id}>
+                <CardElementWrapper key={id} variants={listItemAnimate}>
                   <MemberCard data={data} />
                 </CardElementWrapper>
               ))}
-            </CardListWrapper>
-          )}
-        </ContainerInner>
-      </LayoutContainer>
+            </CardList>
+          </ContainerInner>
+        </LayoutContainer>
+      )}
     </>
   );
 };

@@ -10,6 +10,10 @@ export const MemberCardWrapper = styled.div`
   height: 250px;
   display: flex;
   justify-content: center;
+  @media (max-width: 500px) {
+    width: 130px;
+    height: 200px;
+  }
 `;
 export const MemberCardInner = styled.div`
   display: flex;
@@ -34,6 +38,9 @@ export const MemberName = styled.div`
   font-weight: bold;
   text-align: center;
   background: white;
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 export const CardMargin = styled.div`
   height: 20px;
@@ -43,4 +50,7 @@ export const MemberScore = styled.div`
   font-weight: bold;
   color: #a35d29;
   background: white;
+  @media (max-width: 500px) {
+    font-size: 25px;
+  }
 `;

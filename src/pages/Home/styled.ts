@@ -1,10 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const CardListWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-export const CardElementWrapper = styled.div`
+export const CardElementWrapper = styled(motion.div)`
   width: 20%;
   display: flex;
   justify-content: center;
@@ -13,4 +10,8 @@ export const CardElementWrapper = styled.div`
   @media (max-width: 500px) {
     width: 50%;
   }
+`;
+export const CardList = styled(motion.section)`
+  display: flex;
+  flex-wrap: wrap;
 `;
