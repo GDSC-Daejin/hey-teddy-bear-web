@@ -14,22 +14,21 @@ export const NavInner = styled.div`
   flex: 1;
   max-width: 1140px;
   min-width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 70px;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  @media (max-width: 500px) {
-    height: 70px;
-  }
 `;
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 20px;
 `;
 export const StyledImg = styled.img`
   margin-top: 3px;
-  height: 11px;
+  height: 15px;
   margin-right: 7px;
 `;
 export const StyledLogo = styled.div<any>`
@@ -37,7 +36,7 @@ export const StyledLogo = styled.div<any>`
 
   margin-right: 10px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   @media (max-width: 600px) {
     display: none;
   }
@@ -45,7 +44,7 @@ export const StyledLogo = styled.div<any>`
 export const SchoolName = styled.div`
   color: #4e4e4e;
   margin-right: 5px;
-  font-size: 10px;
+  font-size: 14px;
   @media (max-width: 670px) {
     display: none;
   }
@@ -111,6 +110,7 @@ export const NavIconWrapper = styled.div`
   transition-delay: 0.05s;
   transition-duration: 0.2s;
   transition-timing-function: ease;
+
   :hover {
     background: #f2f4f6;
     cursor: pointer;
