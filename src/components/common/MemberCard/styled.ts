@@ -13,6 +13,8 @@ export const MemberCardWrapper = styled.div`
 
   transition: 250ms;
 
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+
   :hover {
     border-color: transparent;
     background: white;
