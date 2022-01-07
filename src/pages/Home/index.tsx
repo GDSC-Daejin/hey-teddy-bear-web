@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetScoreBoard } from '../../api/hooks/useGetScoreBoard';
+import { useGetMonthlyScoreBoard } from '../../api/hooks/useGetScoreBoard';
 import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 import MemberCard from '../../components/common/MemberCard';
 import { CardElementWrapper, CardList } from './styled';
@@ -8,11 +8,8 @@ import {
   listItemAnimate,
 } from '../../components/common/motions/variants';
 
-const Home = () => {
-  const monthlyData = useGetScoreBoard({
-    term: 'monthly',
-    filter: 'to',
-  });
+const Home = ({ filter }: any): JSX.Element => {
+  const monthlyData = useGetMonthlyScoreBoard(filter);
 
   return (
     <>

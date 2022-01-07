@@ -6,9 +6,14 @@ export class TeddyBearApi {
   constructor() {
     this.API = 'https://iconic-flare-334012.du.r.appspot.com';
   }
-  getScoreBoard = (filter: string) => {
+  getMonthlyScoreBoard = (filter: string) => {
     return axios.get<rowScoreBoardType>(
-      `${this.API}/api/scoreboard/${filter}/inc`,
+      `${this.API}/api/scoreboard/monthly/${filter}/inc`,
+    );
+  };
+  getWeeklyScoreBoard = (filter: string) => {
+    return axios.get<rowScoreBoardType>(
+      `${this.API}/api/scoreboard/weekly/${filter}/inc`,
     );
   };
 }

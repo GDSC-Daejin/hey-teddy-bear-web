@@ -2,17 +2,14 @@ import React from 'react';
 import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 import { CardElementWrapper, CardList } from '../Home/styled';
 import MemberCard from '../../components/common/MemberCard';
-import { useGetScoreBoard } from '../../api/hooks/useGetScoreBoard';
+import { useGetWeeklyScoreBoard } from '../../api/hooks/useGetScoreBoard';
 import {
   listAnimate,
   listItemAnimate,
 } from '../../components/common/motions/variants';
 
-const Weekly = () => {
-  const weeklyData = useGetScoreBoard({
-    term: 'weekly',
-    filter: 'to',
-  });
+const Weekly = ({ filter }: any) => {
+  const weeklyData = useGetWeeklyScoreBoard(filter);
   return (
     <>
       {weeklyData.data && (

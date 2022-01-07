@@ -13,13 +13,24 @@ import {
 import GDSCLogo from '../../../img/GDSC-LOGO.svg';
 import { useLocation } from 'react-router';
 import './Navigation.css';
-import NavigationCategory from './NavigationCategory';
+import NavigationCategory from './NavRouteCategory';
+import NavRouteCategory from './NavRouteCategory';
+import NavFilterCategory from './NavFilterCategory';
 
-const Navigation: React.FC = () => {
+type Iprops = {
+  setFilter: (filter: string) => void;
+  filter: string;
+};
+
+const Navigation = ({ setFilter, filter }: Iprops) => {
   const locaton = useLocation();
   const routeData = [
     { label: 'Monthly', route: '/' },
     { label: 'Weekly', route: '/weekly' },
+  ];
+  const filterData = [
+    { label: 'To', route: 'to' },
+    { label: 'From', route: 'from' },
   ];
   const [route, setRoute] = useState<string>('/');
   useEffect(() => {
@@ -40,11 +51,18 @@ const Navigation: React.FC = () => {
             </StyledLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
-        <NavigationCategory
-          routeData={routeData}
-          setSelect={setRoute}
-          select={route}
-        />
+        <NavTaskWrapper>
+          <NavFilterCategory
+            filterData={filterData}
+            setFilter={setFilter}
+            filter={filter}
+          />
+          <NavRouteCategory
+            routeData={routeData}
+            setSelect={setRoute}
+            select={route}
+          />
+        </NavTaskWrapper>
       </NavInner>
     </NavDesign>
   );

@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { StyledLabel, StyledLi, StyledUl } from './styled';
 import { useNavigate } from 'react-router-dom';
-import './NavigationCategory.css';
+import './NavRouteCategory.css';
 
 type Props = {
   routeData: { label: string; route: string }[];
   setSelect: (setSelect: string) => void;
   select: string;
 };
-const NavigationCategory = ({ routeData, select, setSelect }: Props) => {
+const NavRouteCategory = ({ routeData, select, setSelect }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -43,4 +43,4 @@ const NavigationCategory = ({ routeData, select, setSelect }: Props) => {
   );
 };
 
-export default NavigationCategory;
+export default NavRouteCategory;
