@@ -13,7 +13,6 @@ export const MemberCardWrapper = styled(motion.div)`
   justify-content: center;
   transition: 250ms;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
-
   @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     width: 180px;
     height: 225px;
@@ -26,7 +25,7 @@ export const MemberCardInner = styled.div`
   align-items: center;
   border-radius: 20px;
   border-style: solid;
-  border-width: 0px;
+  border-width: 0;
 `;
 export const ProfileImage = styled.img`
   width: 80px;
@@ -48,7 +47,6 @@ export const MemberName = styled.div`
   justify-content: center;
   font-weight: bold;
   text-align: center;
-
   @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     font-size: 16px;
   }

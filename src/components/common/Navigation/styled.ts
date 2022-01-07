@@ -33,11 +33,10 @@ export const StyledImg = styled.img`
 `;
 export const StyledLogo = styled.div<any>`
   color: ${(props) => props.color};
-
   margin-right: 10px;
   font-weight: bold;
   font-size: 18px;
-  @media (max-width: 600px) {
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     display: none;
   }
 `;
@@ -45,18 +44,12 @@ export const SchoolName = styled.div`
   color: #4e4e4e;
   margin-right: 5px;
   font-size: 14px;
-  @media (max-width: 670px) {
-    display: none;
-  }
 `;
 export const WideNavigation = styled.div`
   z-index: 999;
-  @media (max-width: 560px) {
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     display: none;
   }
-`;
-export const NavigationWapper = styled.div`
-  position: sticky;
 `;
 export const ShortNavigation = styled(motion.nav)`
   position: absolute;
