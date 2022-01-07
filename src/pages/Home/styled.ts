@@ -7,7 +7,16 @@ export const CardElementWrapper = styled(motion.div)`
   justify-content: center;
   cursor: pointer;
   margin-top: 35px;
-  @media (max-width: 500px) {
+
+  @media (max-width: 1200px) {
+    width: 25%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 33.3%;
+  }
+
+  @media (max-width: 768px) {
     width: 50%;
   }
 `;
