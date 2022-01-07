@@ -6,20 +6,20 @@ export const CardElementWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin-top: 35px;
 
   @media (max-width: 1200px) {
     width: 25%;
   }
 
-  @media (max-width: 1024px) {
-    width: 33.3%;
+  @media (max-width: ${(props) => props.theme.windowSize.desk}px) {
+    width: 33%;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
     width: 50%;
   }
 `;
+
 export const CardList = styled(motion.section)`
   display: flex;
   flex-wrap: wrap;

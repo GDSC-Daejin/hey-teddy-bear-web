@@ -30,7 +30,7 @@ export const StyledSubLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-right: 20px;
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+  @media (max-width: ${(props) => props.theme.windowSize.largeTablet}px) {
     display: none;
   }
 `;
@@ -44,7 +44,7 @@ export const StyledLogo = styled.div<any>`
   margin-right: 10px;
   font-weight: bold;
   font-size: 18px;
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+  @media (max-width: ${(props) => props.theme.windowSize.largeMobile}px) {
     display: none;
   }
 `;
@@ -55,7 +55,7 @@ export const SchoolName = styled.div`
 `;
 export const WideNavigation = styled.div`
   z-index: 999;
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+  @media (max-width: ${(props) => props.theme.windowSize.largeMobile}px) {
     display: none;
   }
 `;
@@ -94,7 +94,7 @@ export const NavTask = styled.li`
   list-style: none;
   text-decoration: none;
   border-radius: 8px;
-  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+  @media (max-width: ${(props) => props.theme.windowSize.largeMobile}px) {
     display: none;
   }
 `;
@@ -107,7 +107,7 @@ export const NavTaskWrapper = styled.ul`
 `;
 export const StyledTeddyBear = styled.img`
   height: 50px;
-  @media (min-width: ${(props) => props.theme.windowSize.mobile}px) {
+  @media (min-width: ${(props) => props.theme.windowSize.largeMobile}px) {
     display: none;
   }
 `;

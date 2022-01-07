@@ -7,14 +7,14 @@ export const MemberCardWrapper = styled(motion.div)`
   border-style: solid;
   border-width: 1px;
   border-color: #f1f1f1;
-  width: 200px;
+  margin: 10px;
+  width: 100%;
   height: 250px;
   display: flex;
   justify-content: center;
   transition: 250ms;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
-    width: 150px;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     height: 225px;
   }
 `;
@@ -35,7 +35,7 @@ export const ProfileImage = styled.img`
   border-width: 1px;
   border-color: #f2f2f2;
 
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     width: 60px;
     height: 60px;
   }
@@ -47,7 +47,7 @@ export const MemberName = styled.div`
   justify-content: center;
   font-weight: bold;
   text-align: center;
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 16px;
   }
 `;
@@ -59,7 +59,7 @@ export const MemberScore = styled.div`
   font-weight: bold;
   color: #a35d29;
 
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     font-size: 24px;
   }
 `;
