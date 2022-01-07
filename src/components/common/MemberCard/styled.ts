@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const MemberCardWrapper = styled.div`
+export const MemberCardWrapper = styled(motion.div)`
   background: #fcfcfc;
   border-radius: 20px;
   border-style: solid;
@@ -10,18 +11,10 @@ export const MemberCardWrapper = styled.div`
   height: 250px;
   display: flex;
   justify-content: center;
-
   transition: 250ms;
-
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
 
-  :hover {
-    border-color: transparent;
-    background: white;
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.06);
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     width: 180px;
     height: 225px;
   }
@@ -43,7 +36,7 @@ export const ProfileImage = styled.img`
   border-width: 1px;
   border-color: #f2f2f2;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     width: 60px;
     height: 60px;
   }
@@ -56,7 +49,7 @@ export const MemberName = styled.div`
   font-weight: bold;
   text-align: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     font-size: 16px;
   }
 `;
@@ -68,7 +61,7 @@ export const MemberScore = styled.div`
   font-weight: bold;
   color: #a35d29;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
     font-size: 24px;
   }
 `;

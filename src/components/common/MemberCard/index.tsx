@@ -21,7 +21,13 @@ export type Iprops = {
 const MemberCard = (props: Iprops) => {
   return (
     <>
-      <MemberCardWrapper>
+      <MemberCardWrapper
+        whileHover={{
+          borderColor: 'transparent',
+          background: 'white',
+          boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.06)',
+        }}
+      >
         <MemberCardInner>
           <ProfileImage src={props.data.avatar} />
           <CardMargin />

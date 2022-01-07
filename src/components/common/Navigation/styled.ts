@@ -101,18 +101,3 @@ export const NavTaskWrapper = styled.ul`
   list-style: none;
   padding-left: 0px;
 `;
-export const NavIconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-  padding: 7px 7px;
-  border-radius: 10px;
-  transition-delay: 0.05s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-
-  :hover {
-    background: #f2f4f6;
-    cursor: pointer;
-  }
-`;
