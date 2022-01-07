@@ -19,6 +19,9 @@ export const StyledFilterLi = styled(motion.li)`
   position: relative;
   user-select: none;
   font-size: 14px;
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    margin: 0 2px;
+  }
 `;
 
 export const StyledFilterLabel = styled(motion.div)`

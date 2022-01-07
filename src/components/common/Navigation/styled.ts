@@ -86,6 +86,9 @@ export const NavTask = styled.li`
   list-style: none;
   text-decoration: none;
   border-radius: 8px;
+  @media (max-width: ${(props) => props.theme.windowSize.mobile}px) {
+    display: none;
+  }
 `;
 
 export const NavTaskWrapper = styled.ul`
