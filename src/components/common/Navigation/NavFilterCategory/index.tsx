@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-
-import { useNavigate } from 'react-router-dom';
+import { StyledLabel, StyledLi } from '../NavRouteCategory/styled';
+import { StyledUl } from '../NavRouteCategory/styled';
 import './NavfilterCategory.css';
-import { StyledFilterLabel, StyledFilterLi, StyledFilterUl } from './styled';
 
 type Props = {
   filterData: { label: string; route: string }[];
@@ -14,31 +13,31 @@ const NavFilterCategory = ({ filterData, filter, setFilter }: Props) => {
   return (
     <>
       <nav>
-        <StyledFilterUl>
+        <StyledUl>
           {filterData.map((item, id) => (
             <>
-              <StyledFilterLi
+              <StyledLi
                 key={item.label}
                 className={item.route === filter ? 'selectedFilter' : ''}
                 onClick={() => {
                   setFilter(item.route);
                 }}
               >
-                <StyledFilterLabel
+                <StyledLabel
                   className={item.route === filter ? 'selectedFilter' : ''}
                 >
                   {item.label}
-                </StyledFilterLabel>
+                </StyledLabel>
                 {item.route === filter ? (
                   <motion.div
                     className="underlineFilter"
                     layoutId="underlineFilter"
                   />
                 ) : null}
-              </StyledFilterLi>
+              </StyledLi>
             </>
           ))}
-        </StyledFilterUl>
+        </StyledUl>
       </nav>
     </>
   );

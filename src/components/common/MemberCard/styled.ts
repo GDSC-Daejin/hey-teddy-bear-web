@@ -14,13 +14,13 @@ export const MemberCardWrapper = styled(motion.div)`
   transition: 250ms;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
   @media (max-width: ${(props) => props.theme.windowSize.tablet}) {
-    width: 180px;
+    width: 150px;
     height: 225px;
   }
 `;
 export const MemberCardInner = styled.div`
   display: flex;
-  padding: 20px 40px;
+  padding: 20px 30px;
   flex-direction: column;
   align-items: center;
   border-radius: 20px;

@@ -9,13 +9,15 @@ import {
   StyledImg,
   StyledLogo,
   StyledLogoWrapper,
+  StyledSubLogoWrapper,
+  StyledTeddyBear,
 } from './styled';
 import GDSCLogo from '../../../img/GDSC-LOGO.svg';
 import { useLocation } from 'react-router';
 import './Navigation.css';
-import NavigationCategory from './NavRouteCategory';
 import NavRouteCategory from './NavRouteCategory';
 import NavFilterCategory from './NavFilterCategory';
+import teddyBear from '../../../img/TeddyBear.svg';
 
 type Iprops = {
   setFilter: (filter: string) => void;
@@ -40,15 +42,16 @@ const Navigation = ({ setFilter, filter }: Iprops) => {
     <NavDesign className={'white'}>
       <NavInner>
         <NavTaskWrapper>
+          <StyledTeddyBear src={teddyBear} />
           <NavTask>
             <StyledLogoWrapper>
               <StyledLogo color={'#A35D29'}>teddybear </StyledLogo>
               <StyledLogo color={'#4e4e4e'}>dashboard </StyledLogo>
             </StyledLogoWrapper>
-            <StyledLogoWrapper>
+            <StyledSubLogoWrapper>
               <StyledImg src={GDSCLogo} alt="GDSC-Chapter-Logo" height={40} />
               <SchoolName>powered by GDSC DJU</SchoolName>
-            </StyledLogoWrapper>
+            </StyledSubLogoWrapper>
           </NavTask>
         </NavTaskWrapper>
         <NavTaskWrapper>

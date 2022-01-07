@@ -26,6 +26,14 @@ export const StyledLogoWrapper = styled.div`
   align-items: center;
   margin-right: 20px;
 `;
+export const StyledSubLogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
+    display: none;
+  }
+`;
 export const StyledImg = styled.img`
   margin-top: 3px;
   height: 15px;
@@ -96,4 +104,10 @@ export const NavTaskWrapper = styled.ul`
   align-items: center;
   list-style: none;
   padding-left: 0px;
+`;
+export const StyledTeddyBear = styled.img`
+  height: 50px;
+  @media (min-width: ${(props) => props.theme.windowSize.mobile}px) {
+    display: none;
+  }
 `;

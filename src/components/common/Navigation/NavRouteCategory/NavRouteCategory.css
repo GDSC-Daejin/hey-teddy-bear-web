@@ -11,4 +11,5 @@
 .selected{
     color: #A35D29 !important;
     font-weight: bold;
+    transition: 500ms;
 }
