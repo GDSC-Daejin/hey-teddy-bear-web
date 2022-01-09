@@ -12,19 +12,17 @@ const Weekly = ({ filter }: any) => {
   const weeklyData = useGetWeeklyScoreBoard(filter);
   return (
     <>
-      {weeklyData.data && (
-        <LayoutContainer>
-          <ContainerInner>
-            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-              {weeklyData.data.data.map((data, id) => (
-                <CardElementWrapper key={id} variants={listItemAnimate}>
-                  <MemberCard data={data} />
-                </CardElementWrapper>
-              ))}
-            </CardList>
-          </ContainerInner>
-        </LayoutContainer>
-      )}
+      <LayoutContainer>
+        <ContainerInner>
+          <CardList variants={listAnimate} initial={'start'} animate={'end'}>
+            {weeklyData.data?.data.map((data, id) => (
+              <CardElementWrapper key={id} variants={listItemAnimate}>
+                <MemberCard data={data} />
+              </CardElementWrapper>
+            ))}
+          </CardList>
+        </ContainerInner>
+      </LayoutContainer>
     </>
   );
 };
