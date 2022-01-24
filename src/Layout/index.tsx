@@ -11,7 +11,7 @@ const Layout = () => {
       <Navigation setFilter={setFilter} filter={filter} />
       <Routes>
         <Route path={'/*'} element={<Home filter={filter} />} />
-        <Route path={'/weekly'} element={<Weekly filter={filter} />} />
+        <Route path={'/weekly/*'} element={<Weekly filter={filter} />} />
       </Routes>
     </>
   );

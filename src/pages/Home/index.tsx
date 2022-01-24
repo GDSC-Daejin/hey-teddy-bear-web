@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetMonthlyScoreBoard } from '../../api/hooks/useGetScoreBoard';
+import { useGetMonthlyScoreBoard } from '../../api/hooks/useGetMonthlyScoreBoard';
 import { ContainerInner, LayoutContainer } from '../../styles/layouts';
 import MemberCard from '../../components/common/MemberCard';
 import { CardElementWrapper, CardList } from './styled';
@@ -9,21 +9,23 @@ import {
 } from '../../components/common/motions/variants';
 
 const Home = ({ filter }: any): JSX.Element => {
-  const monthlyData = useGetMonthlyScoreBoard(filter);
-
+  const { data } = useGetMonthlyScoreBoard(filter);
+  console.log(data?.data);
   return (
     <>
-      <LayoutContainer>
-        <ContainerInner>
-          <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-            {monthlyData.data?.data.map((data, id) => (
-              <CardElementWrapper key={id} variants={listItemAnimate}>
-                <MemberCard data={data} />
-              </CardElementWrapper>
-            ))}
-          </CardList>
-        </ContainerInner>
-      </LayoutContainer>
+      {data && (
+        <LayoutContainer>
+          <ContainerInner>
+            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
+              {data.data.map((data, id) => (
+                <CardElementWrapper key={id} variants={listItemAnimate}>
+                  <MemberCard data={data} />
+                </CardElementWrapper>
+              ))}
+            </CardList>
+          </ContainerInner>
+        </LayoutContainer>
+      )}
     </>
   );
 };

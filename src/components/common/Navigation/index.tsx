@@ -45,8 +45,8 @@ const Navigation = ({ setFilter, filter }: Iprops) => {
           <StyledTeddyBear src={teddyBear} />
           <NavTask>
             <StyledLogoWrapper>
-              <StyledLogo color={'#A35D29'}>teddybear </StyledLogo>
-              <StyledLogo color={'#4e4e4e'}>dashboard </StyledLogo>
+              <StyledLogo color={'#A35D29'}>teddybear</StyledLogo>
+              <StyledLogo color={'#4e4e4e'}>dashboard</StyledLogo>
             </StyledLogoWrapper>
             <StyledSubLogoWrapper>
               <StyledImg src={GDSCLogo} alt="GDSC-Chapter-Logo" height={40} />
