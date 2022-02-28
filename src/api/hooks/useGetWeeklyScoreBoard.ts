@@ -7,9 +7,9 @@ async function getWeeklyScoreBoard(filter: string) {
 }
 
 export function useGetWeeklyScoreBoard(filter: string) {
-  const { data, error } = useSWR([filter], getWeeklyScoreBoard);
+  const { data, error } = useSWR([`weekly/${filter}`], getWeeklyScoreBoard);
   return {
-    data: data && data,
+    data: data && data.data,
     error,
     loading: !error && !data,
   };

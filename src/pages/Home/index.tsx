@@ -7,18 +7,24 @@ import {
   listAnimate,
   listItemAnimate,
 } from '../../components/common/motions/variants';
+import API from '../../../src/api/';
 
 const Home = ({ filter }: any): JSX.Element => {
   const { data } = useGetMonthlyScoreBoard(filter);
-  console.log(data?.data);
   return (
     <>
       {data && (
         <LayoutContainer>
           <ContainerInner>
             <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-              {data.data.map((data, id) => (
-                <CardElementWrapper key={id} variants={listItemAnimate}>
+              {data.map((data, id) => (
+                <CardElementWrapper
+                  key={id}
+                  variants={listItemAnimate}
+                  onClick={() => {
+                    API.getUserState(data.username);
+                  }}
+                >
                   <MemberCard data={data} />
                 </CardElementWrapper>
               ))}

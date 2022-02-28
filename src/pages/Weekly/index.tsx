@@ -13,17 +13,19 @@ const Weekly = ({ filter }: any) => {
 
   return (
     <>
-      <LayoutContainer>
-        <ContainerInner>
-          <CardList variants={listAnimate} initial={'start'} animate={'end'}>
-            {data?.data.map((data, id) => (
-              <CardElementWrapper key={id} variants={listItemAnimate}>
-                <MemberCard data={data} />
-              </CardElementWrapper>
-            ))}
-          </CardList>
-        </ContainerInner>
-      </LayoutContainer>
+      {data && (
+        <LayoutContainer>
+          <ContainerInner>
+            <CardList variants={listAnimate} initial={'start'} animate={'end'}>
+              {data.map((data, id) => (
+                <CardElementWrapper key={id} variants={listItemAnimate}>
+                  <MemberCard data={data} />
+                </CardElementWrapper>
+              ))}
+            </CardList>
+          </ContainerInner>
+        </LayoutContainer>
+      )}
     </>
   );
 };

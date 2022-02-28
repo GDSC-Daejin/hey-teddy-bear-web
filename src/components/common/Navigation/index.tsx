@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 import {
   NavDesign,
@@ -25,7 +25,7 @@ type Iprops = {
 };
 
 const Navigation = ({ setFilter, filter }: Iprops) => {
-  const locaton = useLocation();
+  const location = useLocation();
   const routeData = [
     { label: 'Monthly', route: '/' },
     { label: 'Weekly', route: '/weekly' },
@@ -36,8 +36,8 @@ const Navigation = ({ setFilter, filter }: Iprops) => {
   ];
   const [route, setRoute] = useState<string>('/');
   useEffect(() => {
-    setRoute(locaton.pathname);
-  });
+    setRoute(location.pathname);
+  }, [filter, route]);
   return (
     <NavDesign className={'white'}>
       <NavInner>

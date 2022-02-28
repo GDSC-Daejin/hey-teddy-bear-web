@@ -4,17 +4,20 @@ import { rowScoreBoardType, scoreBoardType } from '../types';
 export class TeddyBearApi {
   private API: string;
   constructor() {
-    this.API = 'https://iconic-flare-334012.du.r.appspot.com';
+    this.API = 'https://gdsc-teddy-bear.herokuapp.com';
   }
   getMonthlyScoreBoard = (filter: string) => {
     return axios.get<rowScoreBoardType>(
-      `${this.API}/api/scoreboard/monthly/${filter}/inc`,
+      `${this.API}/api/scoreboard/${filter}/inc`,
     );
   };
   getWeeklyScoreBoard = (filter: string) => {
     return axios.get<rowScoreBoardType>(
-      `${this.API}/api/scoreboard/weekly/${filter}/inc`,
+      `${this.API}/api/scoreboard/${filter}/inc`,
     );
+  };
+  getUserState = (userID: string) => {
+    return axios.get<rowScoreBoardType>(`${this.API}/api/userstats/${userID}`);
   };
 }
 export default new TeddyBearApi();
