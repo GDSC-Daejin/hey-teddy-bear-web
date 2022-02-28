@@ -4,7 +4,7 @@ import { rowScoreBoardType, scoreBoardType } from '../types';
 export class TeddyBearApi {
   private API: string;
   constructor() {
-    this.API = 'https://iconic-flare-334012.du.r.appspot.com';
+    this.API = 'https://gdsc-teddy-bear.herokuapp.com';
   }
   getMonthlyScoreBoard = (filter: string) => {
     return axios.get<rowScoreBoardType>(
