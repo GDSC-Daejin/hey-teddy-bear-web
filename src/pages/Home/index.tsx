@@ -19,7 +19,11 @@ const Home = ({ filter }: any): JSX.Element => {
 
   const [selected, setSelected] = useState<string>('');
   const [userState, setUserState] = useState<userStateDataType>();
-
+  const detailCardHandler = async (data: string) => {
+    const res = await API.getUserState(data);
+    setUserState(res.data.data);
+    setSelected(data);
+  };
   return (
     <LayoutGroup>
       {scoreboard && (
@@ -46,11 +50,7 @@ const Home = ({ filter }: any): JSX.Element => {
                 <CardElementWrapper
                   key={scoreboard.username}
                   variants={listItemAnimate}
-                  onClick={async () => {
-                    const res = await API.getUserState(scoreboard.username);
-                    setUserState(res.data.data);
-                    setSelected(scoreboard.username);
-                  }}
+                  onClick={() => detailCardHandler(scoreboard.username)}
                 >
                   <MemberCard {...scoreboard} />
                 </CardElementWrapper>
