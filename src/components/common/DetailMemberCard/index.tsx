@@ -131,7 +131,7 @@ const DetailMemberCard: React.FC<memberCardProps> = ({
                   setGiven(true);
                 }}
               >
-                준 사람
+                내가 준 사람
               </ScoreSelect>
               <ScoreSelect
                 selected={given === false}
@@ -139,7 +139,7 @@ const DetailMemberCard: React.FC<memberCardProps> = ({
                   setGiven(false);
                 }}
               >
-                받은 사람
+                나에게 준 사람
               </ScoreSelect>
             </ScoreSelectWrapper>
             {given ? (
