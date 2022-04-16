@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { userStateDataType } from '../../../types';
-import { useGetUserState } from '../../../api/hooks/useGetUserState';
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import {
-  CardMargin,
-  MemberName,
-  MemberScore,
-  ProfileImage,
-} from '../MemberCard/styled';
+import { CardMargin, MemberName, ProfileImage } from '../MemberCard/styled';
 
 export const DetailMemberCardInner = styled(motion.div)`
   display: flex;
@@ -126,7 +120,7 @@ const DetailMemberCard: React.FC<memberCardProps> = ({
             </ProfileWrapper>
             <ScoreSelectWrapper>
               <ScoreSelect
-                selected={given === true}
+                selected={given}
                 onClick={() => {
                   setGiven(true);
                 }}
@@ -134,7 +128,7 @@ const DetailMemberCard: React.FC<memberCardProps> = ({
                 내가 준 사람
               </ScoreSelect>
               <ScoreSelect
-                selected={given === false}
+                selected={!given}
                 onClick={() => {
                   setGiven(false);
                 }}

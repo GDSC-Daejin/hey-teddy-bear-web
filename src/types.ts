@@ -13,6 +13,9 @@ export type rowScoreBoardType = {
   ];
 };
 export type scoreBoardType = {
+  data: userDataType[];
+};
+export type userDataType = {
   username: string;
   name: string;
   avatar: string;
