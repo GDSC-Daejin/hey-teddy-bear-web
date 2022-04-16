@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { colors } from 'material-ui/styles';
 
 export const NavDesign = styled.div`
   position: sticky;
