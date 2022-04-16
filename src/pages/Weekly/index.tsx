@@ -19,7 +19,7 @@ const Weekly = ({ filter }: any) => {
             <CardList variants={listAnimate} initial={'start'} animate={'end'}>
               {data.map((data, id) => (
                 <CardElementWrapper key={id} variants={listItemAnimate}>
-                  <MemberCard data={data} />
+                  <MemberCard {...data} />
                 </CardElementWrapper>
               ))}
             </CardList>

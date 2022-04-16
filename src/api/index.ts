@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { rowScoreBoardType, scoreBoardType } from '../types';
+import {
+  rowScoreBoardType,
+  rowUserStateDataType,
+  scoreBoardType,
+  userStateDataType,
+} from '../types';
 
 export class TeddyBearApi {
   private API: string;
@@ -17,7 +22,9 @@ export class TeddyBearApi {
     );
   };
   getUserState = (userID: string) => {
-    return axios.get<rowScoreBoardType>(`${this.API}/api/userstats/${userID}`);
+    return axios.get<rowUserStateDataType>(
+      `${this.API}/api/userstats/${userID}`,
+    );
   };
 }
 export default new TeddyBearApi();

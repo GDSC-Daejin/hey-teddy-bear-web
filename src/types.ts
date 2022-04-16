@@ -19,62 +19,61 @@ export type scoreBoardType = {
   memberType: string;
   score: number;
 };
-export type userStateDataType = {
+export type rowUserStateDataType = {
   error: boolean;
   code: number;
+  data: userStateDataType;
   message: string;
-  data: [
+};
+export type userStateDataType = {
+  user: {
+    avatar: string;
+    given: number;
+    givenToday: number;
+    memberType: string;
+    name: string;
+    received: number;
+    receivedToday: number;
+    username: string;
+  };
+  received: [
     {
-      user: {
-        avatar: string;
-        given: number;
-        givenToday: number;
-        memberType: string;
-        name: string;
-        received: number;
-        receivedToday: number;
-        username: string;
-      };
-      received: [
-        {
-          avatar: string;
-          memberType: string;
-          name: string;
-          scoredec: number;
-          scoreinc: number;
-          username: string;
-        },
-      ];
-      receivedToday: [
-        {
-          avatar: string;
-          memberType: string;
-          name: string;
-          scoredec: number;
-          scoreinc: number;
-          username: string;
-        },
-      ];
-      given: [
-        {
-          avatar: string;
-          memberType: string;
-          name: string;
-          scoredec: number;
-          scoreinc: number;
-          username: string;
-        },
-      ];
-      givenToday: [
-        {
-          avatar: string;
-          memberType: string;
-          name: string;
-          scoredec: number;
-          scoreinc: number;
-          username: string;
-        },
-      ];
+      avatar: string;
+      memberType: string;
+      name: string;
+      scoredec: number;
+      scoreinc: number;
+      username: string;
+    },
+  ];
+  receivedToday: [
+    {
+      avatar: string;
+      memberType: string;
+      name: string;
+      scoredec: number;
+      scoreinc: number;
+      username: string;
+    },
+  ];
+  given: [
+    {
+      avatar: string;
+      memberType: string;
+      name: string;
+      scoredec: number;
+      scoreinc: number;
+      username: string;
+    },
+  ];
+  givenToday: [
+    {
+      avatar: string;
+      memberType: string;
+      name: string;
+      scoredec: number;
+      scoreinc: number;
+      username: string;
     },
   ];
 };

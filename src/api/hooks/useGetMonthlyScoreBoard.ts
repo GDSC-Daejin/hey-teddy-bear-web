@@ -7,10 +7,13 @@ async function getMonthlyScoreBoard(filter: string) {
 }
 
 export function useGetMonthlyScoreBoard(filter: string) {
-  const { data, error } = useSWR([`monthly/${filter}`], getMonthlyScoreBoard);
+  const { data: scoreboard, error } = useSWR(
+    [`monthly/${filter}`],
+    getMonthlyScoreBoard,
+  );
   return {
-    data: data && data.data,
+    scoreboard: scoreboard && scoreboard.data,
     error,
-    loading: !error && !data,
+    loading: !error && !scoreboard,
   };
 }

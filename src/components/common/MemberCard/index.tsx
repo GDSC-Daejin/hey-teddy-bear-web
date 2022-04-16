@@ -9,16 +9,20 @@ import {
 } from './styled';
 
 export type Iprops = {
-  data: {
-    username: string;
-    name: string;
-    avatar: string;
-    memberType: string;
-    score: number;
-  };
+  username: string;
+  name: string;
+  avatar: string;
+  memberType: string;
+  score: number;
 };
 
-const MemberCard = (props: Iprops) => {
+const MemberCard: React.FC<Iprops> = ({
+  username,
+  name,
+  avatar,
+  memberType,
+  score,
+}) => {
   return (
     <>
       <MemberCardWrapper
@@ -27,13 +31,21 @@ const MemberCard = (props: Iprops) => {
           background: 'white',
           boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.06)',
         }}
+        layoutId={`memberCard-${username}`}
       >
         <MemberCardInner>
-          <ProfileImage src={props.data.avatar} />
+          <ProfileImage
+            src={avatar}
+            layoutId={`memberCard-avatar-${username}`}
+          />
           <CardMargin />
-          <MemberName>{props.data.name}</MemberName>
+          <MemberName layoutId={`memberCard-name-${username}`}>
+            {name}
+          </MemberName>
           <CardMargin />
-          <MemberScore>{props.data.score}</MemberScore>
+          <MemberScore layoutId={`memberCard-score-${username}`}>
+            {score}
+          </MemberScore>
         </MemberCardInner>
       </MemberCardWrapper>
     </>

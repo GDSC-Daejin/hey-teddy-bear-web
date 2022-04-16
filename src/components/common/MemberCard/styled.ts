@@ -12,8 +12,7 @@ export const MemberCardWrapper = styled(motion.div)`
   height: 250px;
   display: flex;
   justify-content: center;
-  transition: 250ms;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
   @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
     height: 225px;
   }
@@ -27,7 +26,7 @@ export const MemberCardInner = styled.div`
   border-style: solid;
   border-width: 0;
 `;
-export const ProfileImage = styled.img`
+export const ProfileImage = styled(motion.img)`
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -40,21 +39,19 @@ export const ProfileImage = styled.img`
     height: 60px;
   }
 `;
-export const MemberName = styled.div`
+export const MemberName = styled(motion.div)`
   font-size: 20px;
-  min-height: 50px;
+  min-height: 30px;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   text-align: center;
-  @media (max-width: ${(props) => props.theme.windowSize.tablet}px) {
-    font-size: 16px;
-  }
 `;
 export const CardMargin = styled.div`
   height: 20px;
+  width: 20px;
 `;
-export const MemberScore = styled.div`
+export const MemberScore = styled(motion.div)`
   font-size: 30px;
   font-weight: bold;
   color: #a35d29;
