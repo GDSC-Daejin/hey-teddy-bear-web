@@ -2,7 +2,7 @@
 
 ---
 
-SiteLink: https://hey-teddy-bear.web.app/
+SiteLink: https://hey-teddy.vercel.app
 
 ## Stack
 
