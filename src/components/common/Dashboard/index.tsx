@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import {
-  rowScoreBoardType,
-  scoreBoardType,
-  userDataType,
-  userStateDataType,
-} from '../../../types';
+import React, { Suspense, useState } from 'react';
+import { userDataType, userStateDataType } from '../../../types';
 import { ContainerInner, LayoutContainer } from '../../../styles/layouts';
 import { AnimatePresence, LayoutGroup } from 'framer-motion';
 import {
@@ -17,15 +12,16 @@ import DetailMemberCard from '../DetailMemberCard';
 import { listAnimate, listItemAnimate } from '../motions/variants';
 import MemberCard from '../MemberCard';
 import API from '../../../api';
+import GoogleSpinner from '../../GoogleSpinner';
 
 const Dashboard: React.FC<{ scoreboard: userDataType[] | undefined }> = ({
   scoreboard,
 }) => {
   const [selected, setSelected] = useState<string>('');
-  const [userState, setUserState] = useState<userStateDataType>();
+  const [userData, setUserData] = useState<userStateDataType | undefined>();
   const detailCardHandler = async (data: string) => {
     const res = await API.getUserState(data);
-    setUserState(res.data.data);
+    setUserData(res.data.data);
     setSelected(data);
   };
   return (
@@ -35,18 +31,29 @@ const Dashboard: React.FC<{ scoreboard: userDataType[] | undefined }> = ({
           <ContainerInner>
             <AnimatePresence>
               {selected && (
-                <Background
-                  initial={{ opacity: 0 }}
-                  exit={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <OutsideClickHandler outsideClick={() => setSelected('')}>
-                    <DetailMemberCard
-                      userState={userState}
-                      username={selected}
-                    />
-                  </OutsideClickHandler>
-                </Background>
+                <>
+                  {userData ? (
+                    <Background
+                      initial={{ opacity: 0 }}
+                      exit={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <OutsideClickHandler
+                        outsideClick={() => {
+                          setSelected('');
+                          setUserData(undefined);
+                        }}
+                      >
+                        <DetailMemberCard
+                          username={selected}
+                          userData={userData}
+                        />
+                      </OutsideClickHandler>
+                    </Background>
+                  ) : (
+                    <GoogleSpinner />
+                  )}
+                </>
               )}
             </AnimatePresence>
             <CardList variants={listAnimate} initial={'start'} animate={'end'}>
@@ -54,7 +61,10 @@ const Dashboard: React.FC<{ scoreboard: userDataType[] | undefined }> = ({
                 <CardElementWrapper
                   key={scoreboard.username}
                   variants={listItemAnimate}
-                  onClick={() => detailCardHandler(scoreboard.username)}
+                  onClick={() => {
+                    setSelected(scoreboard.username);
+                    detailCardHandler(scoreboard.username);
+                  }}
                 >
                   <MemberCard {...scoreboard} />
                 </CardElementWrapper>

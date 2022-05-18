@@ -7,7 +7,6 @@ import { CardMargin, MemberName, ProfileImage } from '../MemberCard/styled';
 export const DetailMemberCardInner = styled(motion.div)`
   display: flex;
   padding: 20px 30px;
-  width: 100%;
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
@@ -89,76 +88,101 @@ const ScoreSelect = styled(motion.div)<{ selected: boolean }>`
 `;
 
 interface memberCardProps {
-  userState: userStateDataType | undefined;
   username: string;
+  userData: userStateDataType | undefined;
+}
+interface IDetailShareList {
+  userData: userStateDataType;
+  given: boolean;
+}
+interface ISelectBar {
+  given: boolean;
+  setGiven: (type: boolean) => void;
 }
 
 const DetailMemberCard: React.FC<memberCardProps> = ({
-  userState,
   username,
+  userData,
 }) => {
   const [given, setGiven] = useState<boolean>(true);
 
+  console.log(userData?.user);
   return (
     <div>
-      <DetailMemberCardWrapper layoutId={`memberCard-${username}`}>
-        {userState && (
+      {userData && userData.user && (
+        <DetailMemberCardWrapper layoutId={`memberCard-${username}`}>
           <DetailMemberCardInner>
-            <ProfileWrapper>
-              <ProfileImage
-                src={userState.user.avatar}
-                layoutId={`memberCard-avatar-${username}`}
-              />
-              <CardMargin />
-              <ScoreNameWrapper>
-                <MemberName layoutId={`memberCard-name-${username}`}>
-                  {userState.user.name}
-                </MemberName>
-                <Score>보낸 곰돌이: {userState.user.given}</Score>
-                <Score>받은 곰돌이: {userState.user.received}</Score>
-              </ScoreNameWrapper>
-            </ProfileWrapper>
-            <ScoreSelectWrapper>
-              <ScoreSelect
-                selected={given}
-                onClick={() => {
-                  setGiven(true);
-                }}
-              >
-                내가 준 사람
-              </ScoreSelect>
-              <ScoreSelect
-                selected={!given}
-                onClick={() => {
-                  setGiven(false);
-                }}
-              >
-                나에게 준 사람
-              </ScoreSelect>
-            </ScoreSelectWrapper>
-            {given ? (
-              <ScoreSection>
-                {userState.given.map((data) => (
-                  <MemberBlock key={`memberBlock-${data.username}`}>
-                    <MemberBlockName> {data.name}</MemberBlockName>
-                    <MemberBlockScore>{data.scoreinc}</MemberBlockScore>
-                  </MemberBlock>
-                ))}
-              </ScoreSection>
-            ) : (
-              <ScoreSection>
-                {userState.received.map((data) => (
-                  <MemberBlock key={`memberBlock-${data.username}`}>
-                    <MemberBlockName> {data.name}</MemberBlockName>
-                    <MemberBlockScore>{data.scoreinc}</MemberBlockScore>
-                  </MemberBlock>
-                ))}
-              </ScoreSection>
-            )}
+            <>
+              <ProfileWrapper>
+                <ProfileImage
+                  src={userData.user.avatar}
+                  layoutId={`memberCard-avatar-${username}`}
+                />
+                <CardMargin />
+                <ScoreNameWrapper>
+                  <MemberName layoutId={`memberCard-name-${username}`}>
+                    {userData.user.name}
+                  </MemberName>
+                  <Score>보낸 곰돌이: {userData.user.given}</Score>
+                  <Score>받은 곰돌이: {userData.user.received}</Score>
+                </ScoreNameWrapper>
+              </ProfileWrapper>
+              <SelectBar given={given} setGiven={setGiven} />
+              <DetailShareList given={given} userData={userData} />
+            </>
           </DetailMemberCardInner>
-        )}
-      </DetailMemberCardWrapper>
+        </DetailMemberCardWrapper>
+      )}
     </div>
+  );
+};
+
+const SelectBar: React.FC<ISelectBar> = ({ given, setGiven }) => {
+  return (
+    <ScoreSelectWrapper>
+      <ScoreSelect
+        selected={given}
+        onClick={() => {
+          setGiven(true);
+        }}
+      >
+        내가 준 사람
+      </ScoreSelect>
+      <ScoreSelect
+        selected={!given}
+        onClick={() => {
+          setGiven(false);
+        }}
+      >
+        나에게 준 사람
+      </ScoreSelect>
+    </ScoreSelectWrapper>
+  );
+};
+
+const DetailShareList: React.FC<IDetailShareList> = ({ userData, given }) => {
+  return (
+    <>
+      {given ? (
+        <ScoreSection>
+          {userData.given.map((data) => (
+            <MemberBlock key={`memberBlock-${data.username}`}>
+              <MemberBlockName> {data.name}</MemberBlockName>
+              <MemberBlockScore>{data.scoreinc}</MemberBlockScore>
+            </MemberBlock>
+          ))}
+        </ScoreSection>
+      ) : (
+        <ScoreSection>
+          {userData.received.map((data) => (
+            <MemberBlock key={`memberBlock-${data.username}`}>
+              <MemberBlockName> {data.name}</MemberBlockName>
+              <MemberBlockScore>{data.scoreinc}</MemberBlockScore>
+            </MemberBlock>
+          ))}
+        </ScoreSection>
+      )}
+    </>
   );
 };
 
